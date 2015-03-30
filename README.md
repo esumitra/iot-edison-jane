@@ -28,11 +28,17 @@ Node.js on Edison Overview
 
 ####  Tasks
 
-Describe tasks program here
+The task class maintains a task que containing every task that is being monitored by the device. The task class polls the server every 30 seconds for new tasks added since last poll time. 
+New tasks are added to the task que and a **new_task** event is emitted. As tasks are scheduled i.e., added to the task queue, a server call is made to change the task status to scheduled which
+is displayed in the UI as a pending task. When tasks are completed, they are removed from the task queue and the server is again notified that the task state is now changed to completed which
+updates the UI.If there are no more tasks pending in the task queue a **tasks_complete** event is emitted.
 
 ####  Main program
 
-Describe main program here
+The main program configures the LED to GPIO digital pin 4 and the switch to GPIO digital pin 8. When a new_task event is received, the main program turns on the LED indicating that a new task
+needs completion. The patient signals that a task is complete by pressing the switch which calls the task completion method. When a tasks_complete event is received, the LED is turned off
+indicating that all tasks have been completed.
+
 
 Future Work
 -------------
