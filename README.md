@@ -39,6 +39,7 @@ The main program configures the LED to GPIO digital pin 4 and the switch to GPIO
 needs completion. The patient signals that a task is complete by pressing the switch which calls the task completion method. When a tasks_complete event is received, the LED is turned off
 indicating that all tasks have been completed.
 
+![Edison prototype shield wiring](http://cdn.instructables.com/FQT/JXYG/I7KB4XTZ/FQTJXYGI7KB4XTZ.LARGE.jpg)
 
 Future Work
 -------------
